@@ -1,34 +1,43 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
+
+  const {colorMode, setColorMode} = useState(true);
+
+  console.log(colorMode);
+  //style
+
+  const headerDiv = {
+    display: "flex",
+    justifyContent: "space-between",
+    margin: "0",
+    padding: "0"
+  }
+
+  const contactMeDiv = {
+    background: (colorMode ? "#282f44" : "#86bbd8"),
+    minHieght: "100%",
+    minWidth: "20%"
+  }
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <>
+      <div style={{position: "fixed", zIndex: "-2", minWidth: "100%", minHeight: "100%", color: (colorMode ? "red" : "black")}}/>
+      <div style={headerDiv}>
+
+        <div style={contactMeDiv}></div>
+
+        <label class="switch">
+          <input type="checkbox" onChange={() => {setColorMode(!colorMode); console.log(colorMode)}}/>
+          <span class="slider round"></span>
+        </label>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+        
+      
+      </>
   )
 }
 
