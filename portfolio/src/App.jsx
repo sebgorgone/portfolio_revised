@@ -18,7 +18,7 @@ function App() {
     justifyContent: "space-between",
     margin: "0",
     padding: "0",
-    height: (window.innerWidth * 2) < window.innerHeight ? "3em" : "2em",
+    height: (vp < 900 ? "3em" : "4.5em"),
   }
 
   const contactMeDiv = {
@@ -26,8 +26,8 @@ function App() {
     border: "none",
     borderBottom: `.25em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
     borderRight: `.25em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
-    minHieght: ("100%"),
-    minWidth: (window.innerWidth < 900 ? "20%": "30%")
+    height: '100%',
+    width: (vp < 900 ? "20%": "30%"),
   }
 
   const titleCardDiv = {
@@ -62,7 +62,10 @@ function App() {
     padding: ".2em",
     paddingLeft: ".5em",
     paddingRight: ".5em"
-
+  }
+  
+  const contactMe = {
+    fontSize: "1em"
   }
 
   //useEffect
@@ -78,7 +81,9 @@ function App() {
       {/* top bar */}
       <div style={headerDiv}>
         {/* top left corner div el */}
-        <div style={contactMeDiv} id="contactMe"></div>
+        <div style={contactMeDiv} className="contactMe">
+          <h1 style={contactMe}>Contact Me</h1>
+        </div>
         {/* color mode */}
         <label class="switch">
           <input type="checkbox" onChange={() => {setColorMode(!colorMode); console.log(colorMode)}}/>
