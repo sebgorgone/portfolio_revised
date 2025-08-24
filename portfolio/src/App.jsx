@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react'
+import useViewport from './components/useViewport';
 
 
 function App() {
+
+  const vp = useViewport()
+
+  console.log('window width: ' + vp)
 
 
   const [colorMode, setColorMode] = useState(true);
@@ -18,33 +23,46 @@ function App() {
 
   const contactMeDiv = {
     background: (colorMode ? "#282f44" : "#86bbd8"),
-    border: `.1em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
+    border: `.25em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
+    borderTop: "none",
+    borderLeft: "none",
     minHieght: ("100%"),
-    minWidth: "20%"
+    minWidth: (window.innerWidth < 900 ? "20%": "30%")
   }
 
   const titleCardDiv = {
     display: "flex",
-    height: "50vh",
-    width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    overFlowY: "hide",
-    flexDirection: "column"
+    overFlowY: "clip",
+    marginTop: "5em"
   }
 
   const p5Background= {
     border: "none",
     borderRadius: "4em",
+    aspectRatio: "2 / 1",
     width: "70%",
-    height: "80%",
     minHeight: "100px"
   }
 
   const title = {
     fontFamily: "main",
     color: "white",
-    fontSize: "4vw",
+    fontSize: "4.9vw",
+    WebkitTextStroke: (colorMode ? "" : ""),
+  }
+
+  const titleCardButton = {
+    backgroundColor: (colorMode ? "#282f44" : "#719fb8"),
+    border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
+    fontFamily: "subMain",
+    color: "white",
+    fontSize: "2vw",
+    padding: ".2em",
+    paddingLeft: ".5em",
+    paddingRight: ".5em"
+
   }
 
   //useEffect
@@ -73,8 +91,16 @@ function App() {
       <div style={titleCardDiv}>
         <iframe style={p5Background}src="src/WALL PAPER/index.html" />
         
-        <div style={{position: "absolute", display: "flex", flexDirection: "column"}}>
+        <div style={{position: "absolute", display: "flex", flexDirection: "column", justifyContent: "space-between", overflow: "clip"}}>
           <h1 style={title}>{`Sebastian Gorgone`}</h1>
+          
+
+          <div style={{display: "flex", justifyContent: "space-between", width: "75%", alignSelf: "center"}}>
+
+            <button style={titleCardButton}>Edits</button>
+            <button style={titleCardButton}>Code</button>
+            <button style={titleCardButton}>Design</button>
+          </div>
         </div>
 
 

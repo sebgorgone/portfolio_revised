@@ -67,6 +67,6 @@ input:checked + .slider:before {
 }
 
 @font-face {
-   font-family: side;
+   font-family: subMain;
    src: url(./BankGothicRegular.ttf);
 }
