@@ -60,3 +60,13 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+@font-face {
+   font-family: main;
+   src: url(./BankGothicBold.ttf);
+}
+
+@font-face {
+   font-family: side;
+   src: url(./BankGothicRegular.ttf);
+}

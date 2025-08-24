@@ -18,7 +18,7 @@ let mode = 0;
 //      type 3 - interval filtering
 //      type 4 - interactive shifting 
 
-const radDenom = 12;
+const radDenom = 13;
 let r;
 let z = 1;
 let conditionfactor = 50;
@@ -41,7 +41,7 @@ function windowResized() {
   pause = true;
   rhombus = [];
   let runtime = frameCount;
-  let bufferframes = 3;
+  let bufferframes = 2;
   resetframe = runtime + bufferframes;
   resizeCanvas(windowWidth, windowHeight);
   centers = [];
@@ -99,7 +99,7 @@ function draw() {
         rh.show();
       }
 
-      frameRate(20);
+      frameRate(30);
 // conditional logic
 if (conditionalfiltering){
   if (debuginfo){
@@ -148,7 +148,7 @@ if (conditionalfiltering){
 
       if (mode == 0){
         conditionfactor = 300
-        frameRate(5);
+        frameRate(7);
         if (triocent.length > 0){
           selectcenter(floor(random(0, triocent.length)));
         }      
@@ -419,7 +419,7 @@ function buildCenter(n){
 
 }
 function addCenter(x, y, angle, r, state) {
-   let edgetol = r / 1.5
+   let edgetol = r 
    let exists = centers.some(c => c.x === x && c.y === y);
    if (
       !exists &&
@@ -697,11 +697,11 @@ class Rhombus {
       noStroke();
     }
     if (this.state === 0) {
-      fill(59, 72, 77);
+      fill(25, 29, 50);
     } else if (this.state== 1) {
-      fill(81,70,75);
+      fill(89, 59, 72);
     } else if (this.state == 2) {
-      fill(146,65,68);
+      fill(113, 159, 184);
     }
 
     quad(

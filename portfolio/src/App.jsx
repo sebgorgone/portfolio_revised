@@ -23,6 +23,30 @@ function App() {
     minWidth: "20%"
   }
 
+  const titleCardDiv = {
+    display: "flex",
+    height: "50vh",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    overFlowY: "hide",
+    flexDirection: "column"
+  }
+
+  const p5Background= {
+    border: "none",
+    borderRadius: "4em",
+    width: "70%",
+    height: "80%",
+    minHeight: "100px"
+  }
+
+  const title = {
+    fontFamily: "main",
+    color: "white",
+    fontSize: "4vw",
+  }
+
   //useEffect
 
   useEffect(() => {console.log(colorMode)}, [colorMode])
@@ -42,6 +66,17 @@ function App() {
           <input type="checkbox" onChange={() => {setColorMode(!colorMode); console.log(colorMode)}}/>
           <span class="slider round"></span>
         </label>
+
+      </div>
+      {/* title card div */}
+
+      <div style={titleCardDiv}>
+        <iframe style={p5Background}src="src/WALL PAPER/index.html" />
+        
+        <div style={{position: "absolute", display: "flex", flexDirection: "column"}}>
+          <h1 style={title}>{`Sebastian Gorgone`}</h1>
+        </div>
+
 
       </div>
 
