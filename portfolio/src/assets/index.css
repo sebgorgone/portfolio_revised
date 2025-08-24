@@ -70,3 +70,13 @@ input:checked + .slider:before {
    font-family: subMain;
    src: url(./BankGothicRegular.ttf);
 }
+
+button:hover {
+  transition: 300ms;
+  opacity: 65%;
+  cursor: pointer;
+  padding: 1em,
+}
+.contactMe:hover {
+  display: "fixed"
+}

@@ -23,9 +23,9 @@ function App() {
 
   const contactMeDiv = {
     background: (colorMode ? "#282f44" : "#86bbd8"),
-    border: `.25em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
-    borderTop: "none",
-    borderLeft: "none",
+    border: "none",
+    borderBottom: `.25em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
+    borderRight: `.25em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
     minHieght: ("100%"),
     minWidth: (window.innerWidth < 900 ? "20%": "30%")
   }
@@ -78,7 +78,7 @@ function App() {
       {/* top bar */}
       <div style={headerDiv}>
         {/* top left corner div el */}
-        <div style={contactMeDiv}></div>
+        <div style={contactMeDiv} id="contactMe"></div>
         {/* color mode */}
         <label class="switch">
           <input type="checkbox" onChange={() => {setColorMode(!colorMode); console.log(colorMode)}}/>
@@ -97,9 +97,9 @@ function App() {
 
           <div style={{display: "flex", justifyContent: "space-between", width: "75%", alignSelf: "center"}}>
 
-            <button style={titleCardButton}>Edits</button>
-            <button style={titleCardButton}>Code</button>
-            <button style={titleCardButton}>Design</button>
+            <button style={titleCardButton} title='Video Editing'>Edits</button>
+            <button style={titleCardButton} title='Programming'>Code</button>
+            <button style={titleCardButton} title='Graphic Design'>Design</button>
           </div>
         </div>
 
