@@ -77,11 +77,29 @@ button:hover {
   cursor: pointer;
 }
 
+.contactMe {
+  height: 100%;
+  width: 20%;
+  transition: 100ms
+}
+
+.contactMe button {
+  display: none;
+  background: none;
+  border: none;
+}
+
+.contactMe:hover button {
+  display: block;
+}
 
 .contactMe:hover {
   height: 75px;
   width: 400px;
   z-index: 3;
-  transition: 200ms
-
 }
+
+.contactMe:hover h1 {
+  display: none
+}
+

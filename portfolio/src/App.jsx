@@ -26,8 +26,11 @@ function App() {
     border: "none",
     borderBottom: `.25em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
     borderRight: `.25em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
-    height: '100%',
-    width: (vp < 900 ? "20%": "30%"),
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+    fontFamily: "main",
+    borderBottomRightRadius: "1em",
   }
 
   const titleCardDiv = {
@@ -65,7 +68,8 @@ function App() {
   }
   
   const contactMe = {
-    fontSize: "1em"
+    fontSize: "1em",
+    color: "white"
   }
 
   //useEffect
@@ -76,14 +80,33 @@ function App() {
       <>
       <div style={{position: "fixed", zIndex: "-2", minWidth: "100%", minHeight: "100%", backgroundColor: (colorMode ? "#21263b" : "#487b9e")}}></div>
 
+      {/* MENU BAR */}
+      <div style={{position: "fixed", zIndex: "2", width: "50px", height: '250px',background: (colorMode ? "#6d3b47" : ""), marginTop: "10em", borderTopRightRadius: "1em", borderBottomRightRadius: "1em"}}>
+
+        <button><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/linkedin-rounded-svgrepo-com.svg'/></button>
+        <button><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/github-svgrepo-com.svg'/></button>
+        <button><img style={{aspectRatio: "1/1", width: "2.7em"}} src='src/assets/instagram-svgrepo-com.svg'/></button>
+        <button><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/email-svgrepo-com.svg'/></button>
+
+        
+      </div>
+
 
 
       {/* top bar */}
       <div style={headerDiv}>
         {/* top left corner div el */}
         <div style={contactMeDiv} className="contactMe">
-          <h1 style={contactMe}>Contact Me</h1>
+          <h1 style={contactMe} >Contact Me</h1>
+
+          <button><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/linkedin-rounded-svgrepo-com.svg'/></button>
+          <button><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/github-svgrepo-com.svg'/></button>
+          <button><img style={{aspectRatio: "1/1", width: "2.7em"}} src='src/assets/instagram-svgrepo-com.svg'/></button>
+          <button><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/email-svgrepo-com.svg'/></button>
+
         </div>
+
+
         {/* color mode */}
         <label class="switch">
           <input type="checkbox" onChange={() => {setColorMode(!colorMode); console.log(colorMode)}}/>
@@ -91,6 +114,9 @@ function App() {
         </label>
 
       </div>
+
+
+
       {/* title card div */}
 
       <div style={titleCardDiv}>
