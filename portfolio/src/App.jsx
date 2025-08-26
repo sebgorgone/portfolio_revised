@@ -4,6 +4,7 @@ import useViewportHeight from './components/useViewportHeight.js';
 import NameCard from './components/NameCard.jsx';
 import Footer from './components/footer.jsx';
 import Edits from './components/Edits.jsx';
+import Code from './components/Code.jsx';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
 
   const [colorMode, setColorMode] = useState(true);
 
-  const [router, setRouter] = useState({home: false, edits: true, design: false, code: false,});
+  const [router, setRouter] = useState({home: true, edits: false, design: false, code: false,});
 
   //style
 
@@ -129,7 +130,9 @@ function App() {
 
       </div>}
 
-      {router.code && <div></div>}
+      {router.code && <div>
+        <Code colorMode={colorMode} />  
+      </div>}
 
       {router.design && <div></div>}
       

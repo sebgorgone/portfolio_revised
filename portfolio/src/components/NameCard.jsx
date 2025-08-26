@@ -24,7 +24,7 @@ function NameCard(props) {
   const title = {
     fontFamily: "main",
     color: "white",
-    fontSize: "4.9vw",
+    fontSize: "calc(2.9vw + 1em)",
     WebkitTextStroke: (colorMode ? "" : ""),
   }
 
