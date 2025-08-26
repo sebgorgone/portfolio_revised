@@ -8,15 +8,17 @@ function NameCard(props) {
     justifyContent: "center",
     alignItems: "center",
     overFlowY: "clip",
-    marginTop: "5em"
+    marginTop: "5em",
+    marginLeft: "1.5em"
   }
 
   const p5Background= {
     border: "none",
     borderRadius: "4em",
     aspectRatio: "2 / 1",
-    width: "70%",
-    minHeight: "100px"
+    width: "80%",
+    minHeight: "100px",
+    boxShadow: `3px 3px 6px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`
   }
 
   const title = {

@@ -3,19 +3,20 @@ import useViewport from './components/useViewport.js';
 import useViewportHeight from './components/useViewportHeight.js';
 import NameCard from './components/NameCard.jsx';
 import Footer from './components/footer.jsx';
+import Edits from './components/Edits.jsx';
+
 
 function App() {
 
-  const vpW = useViewport()
+  const vpW = useViewport();
 
-  const vpH = useViewportHeight()
+  const vpH = useViewportHeight();
 
-  console.log(vpH)
 
 
   const [colorMode, setColorMode] = useState(true);
 
-  const [router, setRouter] = useState({home: true, edits: false, design: false, code: false,})
+  const [router, setRouter] = useState({home: false, edits: true, design: false, code: false,});
 
   //style
 
@@ -57,12 +58,12 @@ function App() {
       <div style={{position: "fixed", zIndex: "-2", minWidth: "100%", minHeight: "100%", backgroundColor: (colorMode ? "#21263b" : "#487b9e")}}></div>
 
       {/* MENU BAR */}
-      <div style={{position: "fixed",display: "flex", flexDirection: "column", justifyContent: "space-between", zIndex: "2", width: "50px", height: '250px',background: (colorMode ? "#6d3b47" : "#21263b"), marginTop: (vpH > 800 ? "20em" : "10em"), borderTopRightRadius: "1em", borderBottomRightRadius: "1em", padding: ".5em"}}>
+      <div style={{    boxShadow: `3px 3px 6px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`, position: "fixed",display: "flex", flexDirection: "column", justifyContent: "space-between", zIndex: "2", width: "50px", height: '250px',background: (colorMode ? "#6d3b47" : "#21263b"), marginTop: (vpH > 800 ? "20em" : "10em"), borderTopRightRadius: "1em", borderBottomRightRadius: "1em", padding: ".5em"}}>
 
-        <button style={menuButton} title='Edits'><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/video-camera-svgrepo-com.svg' /></button>
-        <button style={menuButton} title='code'><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/code-svgrepo-com.svg'/></button>
-        <button style={menuButton} title='Graphic Design'><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/pencil-svgrepo-com.svg'/></button>
-        <button style={menuButton} title='Home'><img style={{aspectRatio: "1/1", width: "2.6em"}} src='src/assets/home-svgrepo-com.svg'/></button>
+        <button onClick={() => {setRouter({home: false, edits: true, code: false, design: false})}} style={menuButton}  type="button" title='Edits'><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/video-camera-svgrepo-com.svg' /></button>
+        <button onClick={() => {setRouter({home: false, edits: false, code: true, design: false})}} style={menuButton}  type="button" title='code'><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/code-svgrepo-com.svg'/></button>
+        <button onClick={() => {setRouter({home: false, edits: false, code: false, design: true})}} style={menuButton}  type="button" title='Graphic Design'><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/pencil-svgrepo-com.svg'/></button>
+        <button onClick={() => {setRouter({home: true, edits: false, code: false, design: false})}} style={menuButton}  type="button" title='Home'><img style={{aspectRatio: "1/1", width: "2.6em"}} src='src/assets/home-svgrepo-com.svg'/></button>
 
         
       </div>
@@ -75,10 +76,10 @@ function App() {
         <div style={contactMeDiv} className="contactMe">
           <h1 style={contactMe} >Contact Me</h1>
 
-          <button><img title='LinkedIn' style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/linkedin-rounded-svgrepo-com.svg'/></button>
-          <button><img title='GitHub' style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/github-svgrepo-com.svg'/></button>
-          <button><img title='Instagram' style={{aspectRatio: "1/1", width: "2.7em"}} src='src/assets/instagram-svgrepo-com.svg'/></button>
-          <button><img title='Email Me' style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/email-svgrepo-com.svg'/></button>
+          <button type="button"><img title='LinkedIn' style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/linkedin-rounded-svgrepo-com.svg'/></button>
+          <button type="button"><img title='GitHub' style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/github-svgrepo-com.svg'/></button>
+          <button type="button"><img title='Instagram' style={{aspectRatio: "1/1", width: "2.7em"}} src='src/assets/instagram-svgrepo-com.svg'/></button>
+          <button type="button"><img title='Email Me' style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/email-svgrepo-com.svg'/></button>
 
         </div>
 
@@ -95,7 +96,7 @@ function App() {
       {router.home && <div>
         <div style={{marginLeft: (vpW > 500 ? "0em" : "2em")}}><NameCard colorMode={colorMode} /></div>
 
-          <h1 style={{marginLeft: (vpW > 500 ? "1em" : "2em"), textAlignLast: "center", fontFamily: "main", color: (colorMode ? "#6d3b47" : "#21263b"), fontSize: "calc(5vw + 2em)"}}>About me</h1>
+          <h1 style={{marginLeft: (vpW > 500 ? ".5em" : "2em"), textAlignLast: "center", fontFamily: "main", color: (colorMode ? "#6d3b47" : "#21263b"), fontSize: "calc(5vw + 2em)"}}>About me</h1>
           <p  style={{margin: "1em", marginLeft: "5em", textAlignLast: "left", fontFamily: "main", color: "white", fontSize: "calc(1vw + 1.2em)"}}>
             My name is Sebastian! I am a Undergraduate Student at the University of Connecticut. I am studying Digital Media and Design, and im interested in UX/UI and web development.
           </p>
@@ -108,8 +109,29 @@ function App() {
             <img style={{boxShadow: `2px 2px 5px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`, borderRadius: (vpW < 600 ? "45px" : "2em"), width: "50%", border: `solid .3em ${(colorMode ? "#6d3b47" : "#21263b")}`}} src='https://res.cloudinary.com/djuul0yr0/image/upload/v1756233437/IMG_0366_but2kx.jpg' />
 
           </div>
+
+          <h1 style={{margin: ".3em",marginLeft: (vpW > 500 ? "1em" : "2em"),marginTop: "1.5em", textAlignLast: "center", fontFamily: "main", color: (colorMode ? "#6d3b47" : "#21263b"), fontSize: "calc(5vw + 2em)"}}>JS blockblast</h1>
+
+          <p  style={{margin: "1em", marginLeft: "5em", textAlignLast: "left", fontFamily: "main", color: "white", fontSize: "calc(1vw + 1.2em)"}}>
+            I made this using p5.js, and thought it would be a good fit for the landing page. Enjoy!
+          </p>
+
+          <iframe style={{width: (vpW > 750 ? "40%" : "70%"), height: (vpW > 750 ? "calc(30vw * 1.5)" : "calc(70vw * 1.5)"), border: "none", margin: (vpW > 750 ? "30%" : "15%")}} src='src/BZBLAST/index.html' />
+
         </div>}
 
+
+      {/* router */}
+
+      {router.edits && <div>
+
+        <Edits colorMode={colorMode} />
+
+      </div>}
+
+      {router.code && <div></div>}
+
+      {router.design && <div></div>}
       
 
 
