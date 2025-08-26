@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import useViewport from './components/useViewport.js';
 import useViewportHeight from './components/useViewportHeight.js';
 import NameCard from './components/NameCard.jsx';
-
+import Footer from './components/footer.jsx';
 
 function App() {
 
@@ -14,6 +14,8 @@ function App() {
 
 
   const [colorMode, setColorMode] = useState(true);
+
+  const [router, setRouter] = useState({home: true, edits: false, design: false, code: false,})
 
   //style
 
@@ -82,18 +84,36 @@ function App() {
 
 
         {/* color mode */}
-        <label class="switch">
+        <label className="switch">
           <input type="checkbox" onChange={() => {setColorMode(!colorMode)}}/>
-          <span class="slider round"></span>
+          <span className="slider round"></span>
         </label>
 
       </div>
 
+    {/* home */}
+      {router.home && <div>
+        <div style={{marginLeft: (vpW > 500 ? "0em" : "2em")}}><NameCard colorMode={colorMode} /></div>
 
-      <div style={{marginLeft: (vpW > 500 ? "0em" : "2em")}}><NameCard colorMode={colorMode} /></div>
+          <h1 style={{marginLeft: (vpW > 500 ? "1em" : "2em"), textAlignLast: "center", fontFamily: "main", color: (colorMode ? "#6d3b47" : "#21263b"), fontSize: "calc(5vw + 2em)"}}>About me</h1>
+          <p  style={{margin: "1em", marginLeft: "5em", textAlignLast: "left", fontFamily: "main", color: "white", fontSize: "calc(1vw + 1.2em)"}}>
+            My name is Sebastian! I am a Undergraduate Student at the University of Connecticut. I am studying Digital Media and Design, and im interested in UX/UI and web development.
+          </p>
+          <p  style={{margin: "1em", marginLeft: "5em", textAlignLast: "left", fontFamily: "main", color: "white", fontSize: "calc(1vw + 1.2em)"}}>
+             I love skiing and skydiving, and sometimes putting together video edits of thoes things as well.
+          </p>
+
+          <div style={{display: "flex", justifyContent: "space-around", marginLeft: (vpW > 500 ? "3.5em" : "2em")}}>
+            <img src='https://res.cloudinary.com/djuul0yr0/image/upload/v1756232243/sitfly_fti5vq.jpg' style={{boxShadow: `2px 2px 5px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`, borderRadius: (vpW < 600 ? "45px" : "2em"), aspectRatio: "2 / 3", width: "30%", border: `solid .3em ${(colorMode ? "#6d3b47" : "#21263b")}`}} />
+            <img style={{boxShadow: `2px 2px 5px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`, borderRadius: (vpW < 600 ? "45px" : "2em"), width: "50%", border: `solid .3em ${(colorMode ? "#6d3b47" : "#21263b")}`}} src='https://res.cloudinary.com/djuul0yr0/image/upload/v1756233437/IMG_0366_but2kx.jpg' />
+
+          </div>
+        </div>}
+
+      
 
 
-        
+      <Footer colorMode={colorMode} />  
       
       </>
   )
