@@ -6,8 +6,6 @@ function App() {
 
   const vp = useViewport()
 
-  console.log('window width: ' + vp)
-
 
   const [colorMode, setColorMode] = useState(true);
 
@@ -72,21 +70,25 @@ function App() {
     color: "white"
   }
 
+  const menuButton = {
+    background: "none",
+    border: "none",
+  }
+
   //useEffect
 
-  useEffect(() => {console.log(colorMode)}, [colorMode])
 
   return (
       <>
       <div style={{position: "fixed", zIndex: "-2", minWidth: "100%", minHeight: "100%", backgroundColor: (colorMode ? "#21263b" : "#487b9e")}}></div>
 
       {/* MENU BAR */}
-      <div style={{position: "fixed", zIndex: "2", width: "50px", height: '250px',background: (colorMode ? "#6d3b47" : ""), marginTop: "10em", borderTopRightRadius: "1em", borderBottomRightRadius: "1em"}}>
+      <div style={{position: "fixed",display: "flex", flexDirection: "column", justifyContent: "space-between", zIndex: "2", width: "50px", height: '250px',background: (colorMode ? "#6d3b47" : "#21263b"), marginTop: "10em", borderTopRightRadius: "1em", borderBottomRightRadius: "1em", padding: ".5em"}}>
 
-        <button><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/linkedin-rounded-svgrepo-com.svg'/></button>
-        <button><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/github-svgrepo-com.svg'/></button>
-        <button><img style={{aspectRatio: "1/1", width: "2.7em"}} src='src/assets/instagram-svgrepo-com.svg'/></button>
-        <button><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/email-svgrepo-com.svg'/></button>
+        <button style={menuButton} title='Edits'><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/video-camera-svgrepo-com.svg' /></button>
+        <button style={menuButton} title='code'><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/code-svgrepo-com.svg'/></button>
+        <button style={menuButton} title='Graphic Design'><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/pencil-svgrepo-com.svg'/></button>
+        <button style={menuButton} title='Home'><img style={{aspectRatio: "1/1", width: "2.6em"}} src='src/assets/home-svgrepo-com.svg'/></button>
 
         
       </div>
@@ -109,7 +111,7 @@ function App() {
 
         {/* color mode */}
         <label class="switch">
-          <input type="checkbox" onChange={() => {setColorMode(!colorMode); console.log(colorMode)}}/>
+          <input type="checkbox" onChange={() => {setColorMode(!colorMode)}}/>
           <span class="slider round"></span>
         </label>
 
