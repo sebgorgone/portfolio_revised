@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react'
-import useViewport from './components/useViewport';
+import useViewport from './components/useViewport.js';
+import useViewportHeight from './components/useViewportHeight.js';
 
 
 function App() {
 
-  const vp = useViewport()
+  const vpW = useViewport()
+
+  const vpH = useViewportHeight()
+
+  console.log(vpH)
 
 
   const [colorMode, setColorMode] = useState(true);
@@ -16,7 +21,7 @@ function App() {
     justifyContent: "space-between",
     margin: "0",
     padding: "0",
-    height: (vp < 900 ? "3em" : "4.5em"),
+    height: (vpW < 900 ? "3em" : "4.5em"),
   }
 
   const contactMeDiv = {
@@ -66,7 +71,7 @@ function App() {
   }
   
   const contactMe = {
-    fontSize: "1em",
+    fontSize: "calc(.5em + 1vw)",
     color: "white"
   }
 
@@ -83,7 +88,7 @@ function App() {
       <div style={{position: "fixed", zIndex: "-2", minWidth: "100%", minHeight: "100%", backgroundColor: (colorMode ? "#21263b" : "#487b9e")}}></div>
 
       {/* MENU BAR */}
-      <div style={{position: "fixed",display: "flex", flexDirection: "column", justifyContent: "space-between", zIndex: "2", width: "50px", height: '250px',background: (colorMode ? "#6d3b47" : "#21263b"), marginTop: "10em", borderTopRightRadius: "1em", borderBottomRightRadius: "1em", padding: ".5em"}}>
+      <div style={{position: "fixed",display: "flex", flexDirection: "column", justifyContent: "space-between", zIndex: "2", width: "50px", height: '250px',background: (colorMode ? "#6d3b47" : "#21263b"), marginTop: (vpH > 800 ? "20em" : "10em"), borderTopRightRadius: "1em", borderBottomRightRadius: "1em", padding: ".5em"}}>
 
         <button style={menuButton} title='Edits'><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/video-camera-svgrepo-com.svg' /></button>
         <button style={menuButton} title='code'><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/code-svgrepo-com.svg'/></button>
@@ -101,10 +106,10 @@ function App() {
         <div style={contactMeDiv} className="contactMe">
           <h1 style={contactMe} >Contact Me</h1>
 
-          <button><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/linkedin-rounded-svgrepo-com.svg'/></button>
-          <button><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/github-svgrepo-com.svg'/></button>
-          <button><img style={{aspectRatio: "1/1", width: "2.7em"}} src='src/assets/instagram-svgrepo-com.svg'/></button>
-          <button><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/email-svgrepo-com.svg'/></button>
+          <button><img title='LinkedIn' style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/linkedin-rounded-svgrepo-com.svg'/></button>
+          <button><img title='GitHub' style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/github-svgrepo-com.svg'/></button>
+          <button><img title='Instagram' style={{aspectRatio: "1/1", width: "2.7em"}} src='src/assets/instagram-svgrepo-com.svg'/></button>
+          <button><img title='Email Me' style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/email-svgrepo-com.svg'/></button>
 
         </div>
 
