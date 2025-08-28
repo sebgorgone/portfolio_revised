@@ -59,7 +59,7 @@ function App() {
       <div style={{position: "fixed", zIndex: "-2", minWidth: "100%", minHeight: "100%", backgroundColor: (colorMode ? "#21263b" : "#487b9e")}}></div>
 
       {/* MENU BAR */}
-      <div style={{    boxShadow: `3px 3px 6px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`, position: "fixed",display: "flex", flexDirection: "column", justifyContent: "space-between", zIndex: "2", width: "50px", height: '250px',background: (colorMode ? "#6d3b47" : "#21263b"), marginTop: (vpH > 800 ? "20em" : "10em"), borderTopRightRadius: "1em", borderBottomRightRadius: "1em", padding: ".5em"}}>
+      <div style={{ boxShadow: `3px 3px 6px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`, position: "fixed",display: "flex", flexDirection: "column", justifyContent: "space-between", zIndex: "2", width: "50px", height: '250px',background: (colorMode ? "#6d3b47" : "#21263b"), marginTop: (vpH > 800 ? "20em" : "10em"), borderTopRightRadius: "1em", borderBottomRightRadius: "1em", padding: ".5em"}}>
 
         <button onClick={() => {setRouter({home: false, edits: true, code: false, design: false})}} style={menuButton}  type="button" title='Edits'><img style={{aspectRatio: "1/1", width: "2em"}} src='src/assets/video-camera-svgrepo-com.svg' /></button>
         <button onClick={() => {setRouter({home: false, edits: false, code: true, design: false})}} style={menuButton}  type="button" title='code'><img style={{aspectRatio: "1/1", width: "2.4em"}} src='src/assets/code-svgrepo-com.svg'/></button>
@@ -111,13 +111,19 @@ function App() {
 
           </div>
 
-          <h1 style={{margin: ".3em",marginLeft: (vpW > 500 ? "1em" : "2em"),marginTop: "1.5em", textAlignLast: "center", fontFamily: "main", color: (colorMode ? "#6d3b47" : "#21263b"), fontSize: "calc(5vw + 2em)"}}>JS blockblast</h1>
+          <h1 style={{margin: ".3em",marginLeft: (vpW > 500 ? "1.2em" : "2em"),marginTop: "1.5em", textAlignLast: "center", fontFamily: "main", color: (colorMode ? "#6d3b47" : "#21263b"), fontSize: "calc(5vw + 1.8em)"}}>JS blockblast</h1>
 
-          <p  style={{margin: "1em", marginLeft: "5em", textAlignLast: "left", fontFamily: "main", color: "white", fontSize: "calc(1vw + 1.2em)"}}>
+          <p  style={{margin: "1em", marginLeft: "3em", textAlign: "center", fontFamily: "main", color: "white", fontSize: "calc(1vw + 1.2em)"}}>
             I made this using p5.js, and thought it would be a good fit for the landing page. Enjoy!
           </p>
+                      {/* MAKE CODE BE A SUDO HYPERLINK */}
+          <p  style={{margin: "1em", marginLeft: "3em", textAlign: "center", fontFamily: "main", color: "white", fontSize: "calc(1vw + 1.2em)"}}>
+            More programming projects are on the code page.
+          </p>
 
-          <iframe style={{width: (vpW > 750 ? "40%" : "70%"), height: (vpW > 750 ? "calc(30vw * 1.5)" : "calc(70vw * 1.5)"), border: "none", margin: (vpW > 750 ? "30%" : "15%")}} src='src/BZBLAST/index.html' />
+          <div style={{display: "flex", justifyContent: "center", marginLeft: "2em"}}>
+            <iframe style={{width: "100%", height: "45vw", border: "none"}} src='src/BZBLAST/index.html' />
+          </div>
 
         </div>}
 
