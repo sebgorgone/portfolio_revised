@@ -28,6 +28,18 @@ function Code (props) {
 
   }
 
+  const selection = {
+   border: `.2em solid ${(colorMode ? "#373547" : "white")}`,
+   background: (colorMode ? "#6d3b47" : "#2f4858"),
+   fontFamily: "subMain",
+   color: "white",
+   minWidth: "8em",
+   margin: ".5em",
+   padding: ".5em",
+   transition: "0ms"
+
+  }
+
    return(
       <div style={{marginTop: "3em"}}>
          
@@ -39,10 +51,10 @@ function Code (props) {
          <h1 style={{ textAlignLast: "center", fontFamily: "main", color: (colorMode ? "#6d3b47" : "#21263b"), fontSize: "10vw"}}>Projects</h1>
 
          <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", marginLeft: "5em", marginRight: "5em",marginBottom: "2em", flexWrap: "wrap"}}>
-            <button style={routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: true, TM: false, blockblast: false, cubes: false})}}>Cloudlog</button>
-            <button style={routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: true, blockblast: false, cubes: false})}}>Tassk Management</button>
-            <button style={routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: false, blockblast: true, cubes: false})}}>JS blockblast</button>
-            <button style={routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: false, blockblast: false, cubes: true})}}>Turning Cubes</button>
+            <button style={router.cloudlog ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: true, TM: false, blockblast: false, cubes: false})}}>Cloudlog</button>
+            <button style={router.TM ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: true, blockblast: false, cubes: false})}}>Tassk Management</button>
+            <button style={router.blockblast ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: false, blockblast: true, cubes: false})}}>JS blockblast</button>
+            <button style={router.cubes ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: false, blockblast: false, cubes: true})}}>Turning Cubes</button>
          </div>
 
 
