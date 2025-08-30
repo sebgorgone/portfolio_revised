@@ -98,6 +98,24 @@ function Code (props) {
 
 
          {router.blockblast && <div>
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginLeft: "5em", marginRight: "5em", flexDirection: "column"}}>
+               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>The infamous 'Todo App'. Ive made a few but this one remains my favorite. I still go and work on it from time to time just because I love it. Built in react and pushed to GitHub pages, I made this to actually use. </p>
+               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>The little monkey 'mascot' guy's name is molasses, 'ass' for short. Hence the name that I still am so proud of.</p>
+               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>All the data is stored in a single object downloaded and uploaded to browser storage.</p>
+
+            </div>
+
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+               <iframe 
+                  src='https://sebgorgone.github.io/js-blockblast/' 
+                  style={{width: "75%", height: "50vw", border: `solid .25em ${(colorMode ? "#6d3b47" : "#2f4858")}`, boxShadow: `3px 3px 6px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`, borderRadius: ".5em"}}
+               />
+            </div>
+
+            <div style={{display: "flex", flexDirection: "column",margin: "1em", marginLeft: "5em", marginRight: "5em"}}>
+               <a style={{fontFamily: "subMain", color: "white", cursor: "pointer"}} href='https://github.com/sebgorgone/js-blockblast' target='none'>JS blockblast Repo</a>
+               <a style={{fontFamily: "subMain", color: "white", cursor: "pointer"}} href='https://sebgorgone.github.io/js-blockblast/' title="cloudlog repo" target='none'>JS blockblast</a>
+            </div>
          </div>}
 
 
