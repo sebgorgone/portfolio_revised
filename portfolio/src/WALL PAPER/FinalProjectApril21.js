@@ -8,9 +8,9 @@ let faceStep = [];
 let triocent = [];
 let indexcount = 0;
 let Pinitial;
+let setupState = 0;
 //setup type 0 - random grid position and fill
 //      type 1 - cube in the center (WIP)
-let setupState = 0;
 let mode = 0;
 // mode type 0 - random check pattern
 //      type 1 - sequential check pattern (index length-0 by increments 4)
@@ -228,41 +228,41 @@ if (conditionalfiltering){
       }
     }
 }
-function keyPressed(){  
-  if (key === 'b'){
-    debuginfo = !debuginfo;
-  }
-  if (key === 'v'){
-    conditionalfiltering = !conditionalfiltering
-  }
-  if(setupState === 0){
-    if (key === '0'){
-      mode = 0;
-    }
-    if (key === '1'){
-      mode = 1;
-    }
-    if (key === '2'){
-      mode = 2;
-    }
-    if (key === '3'){
-      mode = 3;
-    }
-    if (key === '4'){
-      mode = 4;
-    }
+// function keyPressed(){  
+//   if (key === 'b'){
+//     debuginfo = !debuginfo;
+//   }
+//   if (key === 'v'){
+//     conditionalfiltering = !conditionalfiltering
+//   }
+//   if(setupState === 0){
+//     if (key === '0'){
+//       mode = 0;
+//     }
+//     if (key === '1'){
+//       mode = 1;
+//     }
+//     if (key === '2'){
+//       mode = 2;
+//     }
+//     if (key === '3'){
+//       mode = 3;
+//     }
+//     if (key === '4'){
+//       mode = 4;
+//     }
 
 
-  }
-  if (setupState === 1){
-    if (key === 2){
-      mode = 2
-    }
-    if (key === 'f'){
-      checkcent();
-    }
-  }
-}
+//   }
+//   if (setupState === 1){
+//     if (key === 2){
+//       mode = 2
+//     }
+//     if (key === 'f'){
+//       checkcent();
+//     }
+//   }
+// }
 
 function searchpotentialcenter(x,y){
   let searchpoint = {

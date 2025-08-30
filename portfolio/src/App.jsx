@@ -102,7 +102,7 @@ function App() {
             My name is Sebastian! I am a Undergraduate Student at the University of Connecticut. I am studying Digital Media and Design, and im interested in UX/UI and web development.
           </p>
           <p  style={{margin: "1em", marginLeft: "5em", textAlignLast: "left", fontFamily: "main", color: "white", fontSize: "calc(1vw + 1.2em)"}}>
-             I love skiing and skydiving, and putting together video edits of those things as well.
+             I love both skiing and skydiving, and putting together edits of those things as well.
           </p>
 
           <div style={{display: "flex", justifyContent: "space-around", marginLeft: (vpW > 500 ? "3.5em" : "2em")}}>
