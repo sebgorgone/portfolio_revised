@@ -111,9 +111,8 @@ function Code (props) {
 
          {router.blockblast && <div>
             <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginLeft: "5em", marginRight: "5em", flexDirection: "column"}}>
-               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>The infamous 'Todo App'. Ive made a few but this one remains my favorite. I still go and work on it from time to time just because I love it. Built in react and pushed to GitHub pages, I made this to actually use. </p>
-               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>The little monkey 'mascot' guy's name is molasses, 'ass' for short. Hence the name that I still am so proud of.</p>
-               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>All the data is stored in a single object downloaded and uploaded to browser storage.</p>
+               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>After messing around with the JS libray 'p5.js' I decided id make one of my favorite wastes of time</p>
+               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>This game is ran with the p5 event loop and the highsciore is saved to local cache</p>
 
             </div>
 
