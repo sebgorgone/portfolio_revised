@@ -11,11 +11,16 @@ function GIBS (props) {
 
    const [z, setZ] = useState(0);
 
-   const [t, setT] = useState('2021-10-08')
+   const [t, setT] = useState('default')
 
    const [upperBoundX, setUpperBoundX] = useState(0);
 
    const [upperBoundY, setUpperBoundY] = useState(0);
+
+   const [newX, setNewX] = useState();
+
+   const [newY, setNewY] = useState();
+
 
    useEffect(() => {
       setUpperBoundX(Math.pow(2, z) - 1);
@@ -56,20 +61,35 @@ function GIBS (props) {
          />
       </div>
 
-      <div style={{display: "flex", color: "white", fontFamily: "subMain", fontSize: '1.8vw', paddingLeft: "25vw", paddingRight: "25vw", marginLeft: "0"}}>
+      <div style={{display: "flex", color: "white", fontFamily: "subMain", fontSize: '1.8vw', paddingLeft: "28vw", paddingRight: "25vw", alignItems: "center"}}>
          <button style={routerButton} onClick={e => {e.preventDefault(); if (z > 0) {setZ(prev => prev - 1)}}}>-</button>
          <button style={routerButton} onClick={e => {e.preventDefault(); if (z < 9) {setZ(prev => prev + 1)}}}>+</button>      
          <p style={{color: "white", fontFamily: "subMain"}}>{`Zoom Level: ${z}`}</p>
-
+         <p style={{marginLeft: "1em", color: "white", fontFamily: "subMain"}}>{`coordinates (x/y): (${x}/${y})`}</p>
       </div>
 
       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-         <button type='button' style={{display: (y > 0 ? "block" : "none"),background: "none", border: "none", fontSize: "4vw"}} onClick={() => setY(prev => prev - 1)}>⬆️</button>
-         <div style={{display: "flex", justifyContent: "center"}}>
-            <button type='button' style={{display: (x > 0 ? "block" : "none"),background: "none", border: "none", fontSize: "4vw"}} onClick={() => setX(prev => prev - 1)}>⬅️</button>
-            <button type='button' style={{display: (x < upperBoundX ? "block" : "none"),background: "none", border: "none", fontSize: "4vw"}} onClick={() => setX(prev => prev + 1)}>➡️</button>
+         <button type='button' style={{display: (y > 0 ? "block" : "none"),background: "none", border: "none", fontSize: "4vw"}} onClick={() => setY(prev => String(Number(prev)) - 1)}>⬆️</button>
+         <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <button type='button' style={{display: (x > 0 ? "block" : "none"),background: "none", border: "none", fontSize: "4vw"}} onClick={() => setX(prev => String(Number(prev)) - 1)}>⬅️</button>
+            <button type='button' style={{display: (x < upperBoundX ? "block" : "none"),background: "none", border: "none", fontSize: "4vw"}} onClick={() => setX(prev => String(Number(prev)) + 1)}>➡️</button>
          </div>
-         <button type='button' style={{display: (y < upperBoundY ? "block" : "none"),background: "none", border: "none", fontSize: "4vw"}} onClick={() => setY(prev => prev + 1)}>⬇️</button>
+         <button type='button' style={{display: (y < upperBoundY ? "block" : "none"),background: "none", border: "none", fontSize: "4vw"}} onClick={() => setY(prev => String(Number(prev)) + 1)}>⬇️</button>
+
+         <div style={{display: "flex", justifyContent: "space-between", width: "40%"}}>
+
+            <form onSubmit={e => {e.preventDefault(); if (newX < 0) return; if (newX > upperBoundX) return; if (newY < 0) return; if (newY > upperBoundY) return; setX(newX); setY(newY); setNewX(0); setNewY(0)}} style={{display: "flex", flexDirection: "column", alignItems: "left"}}>
+               <p style={{color: "white", fontFamily: "subMain"}}>{`x coordinate: ${x} - max: ${upperBoundX}`}</p>
+               <input type='number' value={newX} onChange={e => setNewX(Number(e.target.value))} />
+               <p style={{color: "white", fontFamily: "subMain"}}>{`y coordinate: ${y} - max: ${upperBoundY}`}</p>
+               <input type='number' value={newY} onChange={e => setNewY(Number(e.target.value))} />
+               <button type="submit">submit</button>
+
+            </form>
+
+            <div style={{display: "flex", flexDirection: "column", alignItems: "right"}}>hi</div>
+
+         </div>
       </div>
 
 
