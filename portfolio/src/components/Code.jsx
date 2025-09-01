@@ -142,6 +142,7 @@ function Code (props) {
                <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>I would label this as my first real javascript project. I made this after using p5 to learn javascript, and turned it in for a visual programming final project.</p>
                <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>Theres alot going on in this project and some interactivity mainly serving as debug methods for myself. They do give alot of good insight on how the algorithm is running.</p>
                <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>This project was insipired by a 3blue1brown video on solving puzzles using higher order dimensional reperesentations of them. More info on that in the design process below the frame</p>
+               <a style={{fontFamily: "subMain", color: "white", cursor: "pointer"}} href='https://www.youtube.com/watch?v=piJkuavhV50&list=WL&index=3' target='none'>3b1b video</a>
                <h3 style={{fontFamily: "main", color: "white"}}>⬇️ click to use controls ⬇️</h3>
 
             </div>
@@ -221,7 +222,7 @@ function Code (props) {
                <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>This ened up being what I stuck with. Its clunky and slow, and worst of all, I have to limit how many cubes it wants to throw on screen. But its what I wanted and how I wanted it. It achieves the generative part, solves the polarity problem, and allows for some cool conditional things to happen based on how thoes cubes are positioned.</p>
                <img style={{width: "50vw", }} src='https://res.cloudinary.com/djuul0yr0/image/upload/v1756606604/Screenshot_2025-04-28_at_12.03.57_PM_ze5nfo.png' />
                <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>The debug view really shows off how the conditions affect the outcome of the grid. you can clearly see in this example the break in the pattern from the previous and it is buiding bigger blocks.</p>
-               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>Id encourage coloning the repo and messing with the different parameters for the program</p>
+               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>I would encourage cloning the repo and messing with the different parameters for the program</p>
 
                
 

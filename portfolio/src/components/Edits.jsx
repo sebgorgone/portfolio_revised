@@ -1,6 +1,6 @@
 import useViewport from "./useViewport";
 import useViewportHeight from "./useViewportHeight";
-import EditWidget from "./editWidget";
+import EditWidget from "./EditWidget";
 
 function Edits(props) {
    const colorMode = props.colorMode;
