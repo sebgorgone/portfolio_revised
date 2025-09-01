@@ -1,4 +1,5 @@
 import { useState } from "react";
+import APIPage from "./Api-Page";
 
 function Code (props) {
    const colorMode = props.colorMode;
@@ -16,6 +17,7 @@ function Code (props) {
    TM: false,
    blockblast: false,
    cubes: true,
+   api: false
   });
 
   const routerButton = {
@@ -51,10 +53,11 @@ function Code (props) {
          <h1 style={{ textAlignLast: "center", fontFamily: "main", color: (colorMode ? "#6d3b47" : "#21263b"), fontSize: "10vw"}}>Projects</h1>
 
          <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", marginLeft: "5em", marginRight: "5em",marginBottom: "2em", flexWrap: "wrap"}}>
-            <button style={router.cloudlog ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: true, TM: false, blockblast: false, cubes: false})}}>Cloudlog</button>
-            <button style={router.TM ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: true, blockblast: false, cubes: false})}}>Tassk Management</button>
-            <button style={router.blockblast ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: false, blockblast: true, cubes: false})}}>JS blockblast</button>
-            <button style={router.cubes ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: false, blockblast: false, cubes: true})}}>Turning Cubes</button>
+            <button style={router.cloudlog ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: true, TM: false, blockblast: false, cubes: false, api: false})}}>Cloudlog</button>
+            <button style={router.TM ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: true, blockblast: false, cubes: false, api: false})}}>Tassk Management</button>
+            <button style={router.blockblast ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: false, blockblast: true, cubes: false, api: false})}}>JS blockblast</button>
+            <button style={router.cubes ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: false, blockblast: false, cubes: true, api: false})}}>Turning Cubes</button>
+            <button style={router.api ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({cloudlog: false, TM: false, blockblast: false, cubes: false, api: true})}}>messing with APIs</button>
          </div>
 
 
@@ -229,6 +232,18 @@ function Code (props) {
             </div>
 
 
+         </div>}
+
+         {router.api && <div>
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginLeft: "5em", marginRight: "5em", flexDirection: "column"}}>
+               <p style={{textAlign: "center", color: "white", fontFamily: "subMain"}}>This page is mainly for me to just play with a selection of public APIs</p>
+            </div>       
+
+            <APIPage colorMode={colorMode} />
+
+            <div style={{display: "flex", flexDirection: "column",margin: "1em", marginLeft: "5em", marginRight: "5em"}}>
+               <a style={{fontFamily: "subMain", color: "white", cursor: "pointer"}} href='https://nasa-gibs.github.io/gibs-api-docs/' target='none'>GIBS api docs</a>
+            </div>
          </div>}
 
       </div>
