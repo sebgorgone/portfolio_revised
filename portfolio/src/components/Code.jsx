@@ -16,8 +16,8 @@ function Code (props) {
    cloudlog: false,
    TM: false,
    blockblast: false,
-   cubes: true,
-   api: false
+   cubes: false,
+   api: true
   });
 
   const routerButton = {
@@ -241,9 +241,6 @@ function Code (props) {
 
             <APIPage colorMode={colorMode} />
 
-            <div style={{display: "flex", flexDirection: "column",margin: "1em", marginLeft: "5em", marginRight: "5em"}}>
-               <a style={{fontFamily: "subMain", color: "white", cursor: "pointer"}} href='https://nasa-gibs.github.io/gibs-api-docs/' target='none'>GIBS api docs</a>
-            </div>
          </div>}
 
       </div>
