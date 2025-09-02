@@ -3,6 +3,8 @@ function NameCard(props) {
 
    const colorMode = props.colorMode
 
+   const button = props.button
+
    const titleCardDiv = {
     display: "flex",
     justifyContent: "center",
@@ -49,9 +51,9 @@ function NameCard(props) {
 
           <div style={{display: "flex", justifyContent: "space-between", width: "75%", alignSelf: "center"}}>
 
-            <button style={titleCardButton} title='Video Editing'>Edits</button>
-            <button style={titleCardButton} title='Programming'>Code</button>
-            <button style={titleCardButton} title='Graphic Design'>Design</button>
+            <button style={titleCardButton} title='Video Editing' onClick={e => {e.preventDefault(); button.edit()}}>Edits</button>
+            <button style={titleCardButton} title='Programming' onClick={e => {e.preventDefault(); button.code()}}>Code</button>
+            <button style={titleCardButton} title='Graphic Design' onClick={e => {e.preventDefault(); button.design()}}>Design</button>
           </div>
         </div>
 

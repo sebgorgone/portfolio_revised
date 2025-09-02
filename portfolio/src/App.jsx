@@ -5,6 +5,7 @@ import NameCard from './components/NameCard.jsx';
 import Footer from './components/footer.jsx';
 import Edits from './components/Edits.jsx';
 import Code from './components/Code.jsx';
+import Design from './components/Design.jsx';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
   const [colorMode, setColorMode] = useState(true);
 
-  const [router, setRouter] = useState({home: false, edits: false, design: false, code: true,});
+  const [router, setRouter] = useState({home: true, edits: false, design: false, code: false,});
 
   //style
 
@@ -50,6 +51,10 @@ function App() {
     background: "none",
     border: "none",
   }
+
+  const editFunc = () => setRouter({home: false, edits: true, code: false, design: false})
+  const codeFunc = () => setRouter({home: false, edits: false, code: true, design: false})
+  const designFunc = () => setRouter({home: false, edits: false, code: false, design: true})
 
   //useEffect
 
@@ -95,7 +100,7 @@ function App() {
 
     {/* home */}
       {router.home && <div>
-        <div style={{marginLeft: (vpW > 500 ? "0em" : "2em")}}><NameCard colorMode={colorMode} /></div>
+        <div style={{marginLeft: (vpW > 500 ? "0em" : "2em")}}><NameCard colorMode={colorMode} button={{edit: editFunc, code: codeFunc, design: designFunc}}/></div>
 
           <h1 style={{marginLeft: (vpW > 500 ? ".5em" : "2em"), textAlignLast: "center", fontFamily: "main", color: (colorMode ? "#6d3b47" : "#21263b"), fontSize: "calc(5vw + 2em)"}}>About me</h1>
           <p  style={{margin: "1em", marginLeft: "5em", textAlignLast: "left", fontFamily: "main", color: "white", fontSize: "calc(1vw + 1.2em)"}}>
@@ -140,7 +145,9 @@ function App() {
         <Code colorMode={colorMode} />  
       </div>}
 
-      {router.design && <div></div>}
+      {router.design && <div>
+        <Design colorMode={colorMode} />
+        </div>}
       
 
 

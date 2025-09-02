@@ -16,8 +16,8 @@ function Code (props) {
    cloudlog: false,
    TM: false,
    blockblast: false,
-   cubes: false,
-   api: true
+   cubes: true,
+   api: false
   });
 
   const routerButton = {
