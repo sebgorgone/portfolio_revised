@@ -93,23 +93,14 @@ function GIBS (props) {
 
 
       <div style={{display: "flex", justifyContent: "center"}}>
-         <button type='button' style={{display: (y > 0 ? "block" : "none"),background: "none", border: "none", fontSize: "2.5vw", position: "absolute"}} onClick={() => setY(prev => prev - 1)}>⬆️</button>
-         <button type='button' style={{display: (x > 0 ? "block" : "none"),background: "none", border: "none", fontSize: "2.5vw", position: "absolute", marginTop: "1.2em", marginRight: "2.4em"}} onClick={() => setX(prev => prev - 1)}>⬅️</button>
-         <button type='button' style={{display: (x < upperBoundX ? "block" : "none"),background: "none", border: "none", fontSize: "2.5vw", position: "absolute", marginTop: "1.2em", marginLeft: "2.4em"}} onClick={() => setX(prev => prev + 1)}>➡️</button>
-         <button type='button' style={{display: (y < upperBoundY ? "block" : "none"),background: "none", border: "none", fontSize: "2.5vw", position: "absolute", marginTop: "2.4em"}} onClick={() => setY(prev => prev + 1)}>⬇️</button>
+         <button type='button' style={{display: (y > 0 ? "block" : "none"),background: "none", border: "none", fontSize: "3.5vw", position: "absolute"}} onClick={() => setY(prev => prev - 1)}>⬆️</button>
+         <button type='button' style={{display: (x > 0 ? "block" : "none"),background: "none", border: "none", fontSize: "3.5vw", position: "absolute", marginTop: "1.2em", marginRight: "2.4em"}} onClick={() => setX(prev => prev - 1)}>⬅️</button>
+         <button type='button' style={{display: (x < upperBoundX ? "block" : "none"),background: "none", border: "none", fontSize: "3.5vw", position: "absolute", marginTop: "1.2em", marginLeft: "2.4em"}} onClick={() => setX(prev => prev + 1)}>➡️</button>
+         <button type='button' style={{display: (y < upperBoundY ? "block" : "none"),background: "none", border: "none", fontSize: "3.5vw", position: "absolute", marginTop: "2.4em"}} onClick={() => setY(prev => prev + 1)}>⬇️</button>
          <img 
-            style={{border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`, boxShadow: `3px 3px 6px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`, width: "35%"}}
+            style={{border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`, boxShadow: `3px 3px 6px rgba(0, 0, 0, 0.15), 10px 10px 20px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.05)`, width: "50%"}}
             src={tileUrl}
          />
-         {customDate && <div style={{display: "felx", justifyContent: "space-between", alignItems: "center"}}>
-            <p style={{color: "white", fontFamily: "subMain", margin: ".2em"}}>change day</p>
-            <button style={{margin: ".3em", border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`, background: (colorMode ? "#282f44" : "#86bbd8"), fontFamily: "main", color: "white", display: (new Date(t) < new Date(today) ? "block" : "none")}} type='button' onClick={() => {addDay()}}>next</button>
-            <button style={{margin: ".3em", border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`, background: (colorMode ? "#282f44" : "#86bbd8"), fontFamily: "main", color: "white"}} type='button' onClick={() => {removeDay()}}>previous</button>
-         </div>}
-         {customDate && <form onSubmit={e => {e.preventDefault(); setT(newT)}}>
-            <input type='date' placeholder={newT} onChange={e => setNewT(e.target.value)}/>  
-            <button type="submit" style={{margin: ".3em", border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`, background: (colorMode ? "#282f44" : "#86bbd8"), fontFamily: "main", color: "white"}}>change</button>
-         </form>}
       </div>
 
       <div style={{display: "flex", color: "white", fontFamily: "subMain", fontSize: '1.8vw', paddingLeft: "28vw", paddingRight: "25vw", alignItems: "center"}}>
@@ -137,10 +128,10 @@ function GIBS (props) {
                <div style={{display: "flex"}}>
                   <input type='checkbox' checked={customDate} onChange={() => {setCustomDate(prev => !prev); customDate ? setT('default') : setT(new Date().toISOString().split("T")[0])}}/><p style={{color: "white", fontFamily: "subMain"}}>custom date</p>
                </div>
-               {customDate && <div style={{display: "felx", justifyContent: "space-between", alignItems: "center"}}>
+               {customDate && <div style={{display: "flex", justifyContent: "right", alignItems: "center"}}>
                   <p style={{color: "white", fontFamily: "subMain", margin: ".2em"}}>change day</p>
-                  <button style={{margin: ".3em", border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`, background: (colorMode ? "#282f44" : "#86bbd8"), fontFamily: "main", color: "white", display: (new Date(t) < new Date(today) ? "block" : "none")}} type='button' onClick={() => {addDay()}}>next</button>
                   <button style={{margin: ".3em", border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`, background: (colorMode ? "#282f44" : "#86bbd8"), fontFamily: "main", color: "white"}} type='button' onClick={() => {removeDay()}}>previous</button>
+                  <button style={{margin: ".3em", border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`, background: (colorMode ? "#282f44" : "#86bbd8"), fontFamily: "main", color: "white", display: (new Date(t) < new Date(today) ? "block" : "none")}} type='button' onClick={() => {addDay()}}>next</button>
                </div>}
                {customDate && <form onSubmit={e => {e.preventDefault(); setT(newT)}}>
                   <input type='date' placeholder={newT} onChange={e => setNewT(e.target.value)}/>  
