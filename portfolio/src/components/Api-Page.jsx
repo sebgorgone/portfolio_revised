@@ -1,11 +1,12 @@
 import { useState } from "react";
 import GIBS from "./GIBS";
+import Apod from "./Apod";
 
 function APIPage(props) {
 
    const colorMode = props.colorMode
 
-   const [router, setRouter] = useState({gibs: true})
+   const [router, setRouter] = useState({gibs: true, apod: false})
 
    const routerButton = {
    border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
@@ -14,7 +15,6 @@ function APIPage(props) {
    color: "white",
    minWidth: "8em",
    margin: ".5em"
-
   }
 
   const selection = {
@@ -33,10 +33,14 @@ function APIPage(props) {
    return(<div>
 
       <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", marginLeft: "5em", marginRight: "5em",marginBottom: "2em", flexWrap: "wrap"}}>
-            <button style={router.gibs ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({gibs: true})}}>GIBS Satellite Images</button>
+            <button style={router.gibs ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({gibs: true, apod: false})}}>GIBS Satellite Images</button>
+            <button style={router.apod ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({gibs: false, apod: true})}}>GIBS Satellite Images</button>
       </div>
 
-      {router.gibs && <GIBS colorMode={colorMode} />}
+   {router.gibs && <GIBS colorMode={colorMode} />}
+   {router.apod && <Apod colorMode={colorMode} />}
+
+
    </div>)
 }
 
