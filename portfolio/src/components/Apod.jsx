@@ -14,7 +14,7 @@ function Apod (props) {
         const res = await fetch(
           `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`
         );
-        if (!res.title) {
+        if (!res.ok) {
           throw new Error(`HTTP 404`);
         }
         const data = await res.json();

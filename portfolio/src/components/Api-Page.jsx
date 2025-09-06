@@ -34,7 +34,7 @@ function APIPage(props) {
 
       <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", marginLeft: "5em", marginRight: "5em",marginBottom: "2em", flexWrap: "wrap"}}>
             <button style={router.gibs ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({gibs: true, apod: false})}}>GIBS Satellite Images</button>
-            <button style={router.apod ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({gibs: false, apod: true})}}>GIBS Satellite Images</button>
+            <button style={router.apod ? selection : routerButton} onClick={e => {e.preventDefault(); setRouter({gibs: false, apod: true})}}>NASA: APOD</button>
       </div>
 
    {router.gibs && <GIBS colorMode={colorMode} />}

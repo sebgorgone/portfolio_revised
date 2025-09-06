@@ -71,6 +71,18 @@ function GIBS (props) {
    height: "fit-content"
   }
 
+  const zoomButton = {
+   border: `.2em solid ${(colorMode ? "#6d3b47" : "#2f4858")}`,
+   background: (colorMode ? "#282f44" : "#86bbd8"),
+   fontFamily: "subMain",
+   color: "white",
+   margin: ".5em",
+   width: "2em",
+   height: "fit-content",
+   borderRadius: "1em",
+   padding: ".2em"
+  }
+
   function addDay() {
    const d = new Date(t);
    d.setDate(d.getDate() + 1);
@@ -104,10 +116,10 @@ function GIBS (props) {
       </div>
 
       <div style={{display: "flex", color: "white", fontFamily: "subMain", fontSize: '1.8vw', paddingLeft: "28vw", paddingRight: "25vw", alignItems: "center"}}>
-         <button style={routerButton} onClick={e => {e.preventDefault(); zoomOut();}}>-</button> 
-         <button style={routerButton} onClick={e => {e.preventDefault(); zoomIn();}}>+</button>
-         <p style={{color: "white", fontFamily: "subMain"}}>{`Zoom Level: ${z}`}</p>
-         <p style={{marginLeft: "1em", color: "white", fontFamily: "subMain"}}>{`coordinates (x/y): (${x}/${y})`}</p>
+         <button style={zoomButton} onClick={e => {e.preventDefault(); zoomOut();}}>-</button> 
+         <button style={zoomButton} onClick={e => {e.preventDefault(); zoomIn();}}>+</button>
+         <p style={{color: "white", fontFamily: "subMain", fontSize: "1.5vw"}}>{`Zoom Level: ${z}`}</p>
+         <p style={{marginLeft: "1em", color: "white", fontFamily: "subMain", fontSize: "1.75vw"}}>{`coordinates (x/y): (${x}/${y})`}</p>
       </div>
 
       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>

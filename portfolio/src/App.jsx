@@ -18,7 +18,7 @@ function App() {
 
   const [colorMode, setColorMode] = useState(true);
 
-  const [router, setRouter] = useState({home: true, edits: false, design: false, code: false,});
+  const [router, setRouter] = useState({home: false, edits: false, design: false, code: true,});
 
   //style
 

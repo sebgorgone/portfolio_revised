@@ -77,6 +77,12 @@ button:hover {
   cursor: pointer;
 }
 
+button:active {
+  transition: 150ms;
+  opacity: 95%;
+  cursor: pointer;
+}
+
 .contactMe {
   height: 100%;
   width: 30%;
